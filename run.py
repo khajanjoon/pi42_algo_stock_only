@@ -9,7 +9,7 @@ API_SECRET = os.getenv("SECRET_KEY")
 BASE_URL = "https://fapi.pi42.com"
 WS_URL = "https://fawss.pi42.com/"
 
-SYMBOLS = ["HOODINR","MSTRINR","INTCINR","AMZNINR","CRCLINR","COININR","PLTRINR"]
+SYMBOLS = ["HOODINR","MSTRINR","INTCINR","AMZNINR","CRCLINR","COININR","PLTRINR","TSLAINR"]
 
 CAPITAL_PER_TRADE = 6000
 DROP_PERCENT = 3
@@ -24,6 +24,7 @@ MIN_QTY = {
     "CRCLINR": 0.10,
     "COININR": 0.04,
     "PLTRINR": 0.05,
+    "TSLAINR": 0.15,
 }
 
 sio = socketio.Client(reconnection=True)
