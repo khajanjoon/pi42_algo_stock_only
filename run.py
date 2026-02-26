@@ -368,9 +368,15 @@ if __name__ == "__main__":
     threading.Thread(target=display_loop, daemon=True).start()
 
     while True:
-
         try:
-            sio.connect(WS_URL)
-            sio.wait()
-        except:
-            time.sleep(5)
+            print("Connecting to WebSocket...")
+            sio.connect(WS_URL, transports=["websocket"])
+            
+            while sio.connected:
+                time.sleep(1)
+
+        except Exception as e:
+            print("WS Error:", e)
+
+        print("Reconnecting in 5 sec...")
+        time.sleep(5)
